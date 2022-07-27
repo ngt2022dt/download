@@ -1,38 +1,78 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>NGT2022 App Download</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>NGT2022 App Download</title>
 
-<div>
-    <h1>Thank you for downloading the Event App for the NGT2022!</h1>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
 
-    <p id="download-text">Download didn't work? Please follow this link: <a id="download-link" href="http://">Download App</a></p>
-    <p id="not-mobile" style="display: none;">It appears you aren't using a supported mobile device. Please open this link on an iOS or Android device to download the respective app.</p>
-</div>
+        #header-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #E00070;
+        }
 
-<script type="text/javascript"> // <![CDATA[
+        .header {
+            display: block;
+            position: relative;
+            margin: auto;
+        }
 
-var downloadLink = null;
+        .center {
+            margin: auto;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
 
-//iPhone Version:
-if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
-    downloadLink = "https://apps.apple.com/de/app/telekom-event/id1447279330";
-}
-//Android Version:
-else if(navigator.userAgent.match(/android/i)) {
-    downloadLink = "https://play.google.com/store/apps/details?id=net.plazz.mea.telekomevents";
-}
-else {
-    document.getElementById('download-text').style.display = "none";
-    document.getElementById('not-mobile').style.display = "inline";
-}
+<body>
 
-if (downloadLink != null) {
-    document.getElementById('download-link').setAttribute('href', 'downloadLink');
-    window.location = downloadLink;
-}
- 
-</script>
+    <div id="header-wrapper">
+        <img class="header" src="ngt2022.png" alt="The NGT2022 Logo">
+    </div>
+
+    <div class="center">
+
+        <h1>Thank you for downloading the Event App for the NGT2022!</h1>
+
+        <p id="download-text">Download didn't work? Please follow this link: <a id="download-link"
+                href="http://">Download App</a></p>
+        <p id="not-mobile" style="display: none;">It appears you aren't using a supported mobile device. Please open
+            this link on an iOS or Android device to download the respective app.</p>
+    </div>
+
+    <script type="text/javascript"> // <![CDATA[
+
+        var downloadLink = null;
+        var iosDownloadLink = "https://apps.apple.com/de/app/telekom-event/id1447279330";
+        var androidDownloadLink = "https://play.google.com/store/apps/details?id=net.plazz.mea.telekomevents";
+
+        //iPhone Version:
+        if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+            downloadLink = iosDownloadLink;
+        }
+        //Android Version:
+        else if (navigator.userAgent.match(/android/i)) {
+            downloadLink = androidDownloadLink;
+        }
+        else {
+            document.getElementById('download-text').style.display = "none";
+            document.getElementById('not-mobile').style.display = "inline";
+        }
+
+        if (downloadLink != null) {
+            document.getElementById('download-link').setAttribute('href', downloadLink);
+            window.location = downloadLink;
+        }
+
+    </script>
 </body>
+
 </html>
