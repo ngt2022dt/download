@@ -3,15 +3,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>NGT2022 App Download</title>
+
+<div>
+    <h1>Thank you for downloading the Event App for the NGT2022!</h1>
+
+    <p id="download-text">Download didn't work? Please follow this link: <a id="download-link" href="http://">Download App</a></p>
+    <p id="not-mobile" style="display: none;">It appears you aren't using a supported mobile device. Please open this link on an iOS or Android device to download the respective app.</p>
+</div>
+
 <script type="text/javascript"> // <![CDATA[
+
+var downloadLink;
+
 //iPhone Version:
 if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
-    window.location = "https://apps.apple.com/de/app/telekom-event/id1447279330";
+    downloadLink = "https://apps.apple.com/de/app/telekom-event/id1447279330";
 }
 //Android Version:
-if(navigator.userAgent.match(/android/i)) {
-    window.location = "https://play.google.com/store/apps/details?id=net.plazz.mea.telekomevents";
+else if(navigator.userAgent.match(/android/i)) {
+    downloadLink = "https://play.google.com/store/apps/details?id=net.plazz.mea.telekomevents";
 }
+else {
+    document.getElementById('download-link').style.display = "none";
+    document.getElementById('not-mobile').style.display = "inline";
+}
+
+document.getElementById('download-link').setAttribute('href', 'downloadLink');
+
+window.location = downloadLink;
  
 </script>
 </body>
