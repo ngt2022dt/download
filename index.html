@@ -13,7 +13,7 @@
 
 <script type="text/javascript"> // <![CDATA[
 
-var downloadLink;
+var downloadLink = null;
 
 //iPhone Version:
 if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
@@ -28,9 +28,8 @@ else {
     document.getElementById('not-mobile').style.display = "inline";
 }
 
-document.getElementById('download-link').setAttribute('href', 'downloadLink');
-
 if (downloadLink != null) {
+    document.getElementById('download-link').setAttribute('href', 'downloadLink');
     window.location = downloadLink;
 }
  
